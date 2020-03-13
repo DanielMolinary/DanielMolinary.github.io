@@ -31,6 +31,9 @@ var background = function (window) {
         var buildings =[];
         var trees3;
         var level1;
+        var trees2;
+        var backgroundbottom;
+        var level2;
         // called at the start of game and whenever the page is resized
         // add objects for display in background. draws each image added to the background once
         function render() {
@@ -107,6 +110,13 @@ var background = function (window) {
             trees3.scaleX = .09
             trees3.scaleY = .09
             
+            trees2 =draw.bitmap('img/moneytree.png');
+            trees2.x = 1250;
+            trees2.y = groundY -162;
+            background.addChild(trees2)
+            trees2.scaleX = .09
+            trees2.scaleY = .09
+            
             level1 =draw.bitmap('img/gaming-best-practices.png');
             level1.x = 200;
             level1.y = groundY -200;
@@ -114,6 +124,23 @@ var background = function (window) {
             level1.scaleX = .7
             level1.scaleY = .7
             level1.x=level1.x-1;
+            
+            backgroundbottom =draw.bitmap('img/FmipPBYeMJi5BorHCBVYPR (1).jpg');
+            backgroundbottom.x = 0;
+            backgroundbottom.y = groundY +0;
+            background.addChild(backgroundbottom)
+            backgroundbottom.scaleX = .833
+            backgroundbottom.scaleY = .381
+            backgroundbottom.x=backgroundbottom.x+1;
+            
+            level2 =draw.bitmap('img/download.png');
+            level2.x = 1380;
+            level2.y = groundY -200;
+            background.addChild(level2)
+            level2.scaleX = .7
+            level2.scaleY = .7
+            level2.x=level2.x-1;
+            
         } // end of render function - DO NOT DELETE
             
         
@@ -134,7 +161,12 @@ var background = function (window) {
             if (trees3.x<-200){
                 trees3.x = canvasWidth;
             }
+            trees2.x =trees2.x-1;
+            if (trees2.x<-200){
+                trees2.x = canvasWidth;
+            }
             level1.x=level1.x-1;
+            level2.x=level2.x-2;
 
             
             // TODO 5: Part 2 - Parallax
